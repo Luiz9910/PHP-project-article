@@ -1,0 +1,135 @@
+@charset "UTF-8"; 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --laranja:  #FFB800;
+    --laranja-hover: #ffb700a4;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid rgba(167, 165, 165, 0.493);
+}
+
+header > div:first-child {
+    background-color: var(--laranja);
+    padding: 8px 20px;
+}
+
+.logo {
+    font-size: 30px;
+    color: #ffffff;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header div ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    padding-top: 18px;
+}
+
+header div ul a {
+    color: #000000;
+}
+
+header div ul a:hover {
+    transition: 1s;
+    color: #00000080;
+}
+
+main {
+    height: 100%;
+}
+
+.pesquisa {
+    background-image: url('../img/pesquisa.jpg');
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
+    height: 400px;
+    padding: 50px;
+}
+
+.pesquisa h1 {
+    text-align: center;
+    color: var(--laranja);
+    font-size: 45px;
+    margin-bottom: 30px;
+}
+
+main form #search {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    display: block;
+    margin: auto;
+    width: 70vw;
+    font-size: 20px;
+}
+
+.conteudo .artigo {
+    margin-top: 30px;
+}
+
+.conteudo .artigo div{
+    padding: 20px;
+    width: 70vw;
+    display: block;
+    margin: auto;
+    border: 1px solid #B7B7B7;
+    border-radius: 6px 6px 0 0;
+}
+
+.conteudo .artigo div:last-child{
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+}
+
+.nome-artigo {
+    font-weight: bold;
+}
+
+.button-laranja {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: var(--laranja);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-laranja:hover {
+    transition: 2s;
+    background-color: var(--laranja-hover);
+}
+
+.artigo a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+main div button {
+    margin-top: 20px;
+    color: white;
+}
+
+form select {
+    margin-top: 20px;
+}
