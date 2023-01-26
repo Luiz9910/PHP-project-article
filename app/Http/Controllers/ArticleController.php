@@ -28,4 +28,16 @@ class ArticleController extends Controller
 
         return redirect('/');
     }
+
+    public function myArticle() {
+        $articles = Article::all();
+
+        return view('articles.index', ['articles' => $articles]);
+    }
+
+    public function edit($id) {
+        $article = Article::find($id);
+
+        return view('articles.edit', ['article' => $article]);
+    }
 }

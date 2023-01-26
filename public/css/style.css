@@ -37,18 +37,18 @@ header a {
     text-decoration: none;
 }
 
-header div ul {
+.list-link {
     display: flex;
     list-style: none;
     gap: 15px;
     padding-top: 18px;
 }
 
-header div ul a {
+.list-link a {
     color: #000000;
 }
 
-header div ul a:hover {
+.list-link a:hover {
     transition: 1s;
     color: #00000080;
 }
@@ -57,7 +57,7 @@ main {
     height: 100%;
 }
 
-.pesquisa {
+.title-search {
     background-image: url('../img/pesquisa.jpg');
     background-repeat: no-repeat;
     background-position: center right;
@@ -66,14 +66,14 @@ main {
     padding: 50px;
 }
 
-.pesquisa h1 {
+.title-search h1 {
     text-align: center;
     color: var(--laranja);
     font-size: 45px;
     margin-bottom: 30px;
 }
 
-main form #search {
+.search {
     padding: 12px;
     border: none;
     border-radius: 6px;
@@ -83,11 +83,11 @@ main form #search {
     font-size: 20px;
 }
 
-.conteudo .artigo {
+.contents .article {
     margin-top: 30px;
 }
 
-.conteudo .artigo div{
+.contents .article div{
     padding: 20px;
     width: 70vw;
     display: block;
@@ -96,7 +96,7 @@ main form #search {
     border-radius: 6px 6px 0 0;
 }
 
-.conteudo .artigo div:last-child{
+.contents .article div:last-child{
     border-top: none;
     border-radius: 0 0 6px 6px;
 }
@@ -105,7 +105,7 @@ main form #search {
     font-weight: bold;
 }
 
-.button-laranja {
+.button-orange {
     font-size: 18px;
     padding: 10px 20px;
     background-color: var(--laranja);
@@ -114,22 +114,43 @@ main form #search {
     cursor: pointer;
 }
 
-.button-laranja:hover {
+.button-orange:hover {
     transition: 2s;
     background-color: var(--laranja-hover);
 }
 
-.artigo a {
+.article a {
     color: #ffffff;
     text-decoration: none;
 }
 
 
-main div button {
+button {
     margin-top: 20px;
     color: white;
 }
 
 form select {
     margin-top: 20px;
+}
+
+.container {
+    margin-top: 40px;
+}
+
+label {
+    margin-top: 20px;
+}
+
+.sub-title-and-link {
+    justify-content: space-between;
+}
+
+.sub-title-and-link, .edit-delete {
+    display: flex;
+    align-items: center;
+}
+
+.btn-danger {
+    margin: 20px 10px;
 }

@@ -17,7 +17,7 @@ class Session
     public function handle(Request $request, Closure $next)
     {
         if (!session()->has('data')) {
-            return redirect('/login');
+                return redirect('/login');
         }
 
         return $next($request);

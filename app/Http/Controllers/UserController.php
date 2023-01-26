@@ -37,13 +37,9 @@ class UserController extends Controller
             $users = count($pessoa) - 1;
             if ($pessoa[$users]['password'] == $request->password) {
 
-                session_start();
-                $_SESSION['usuario'] = $request->email;
-                $exp = time() + 60 * 60 * 24 * 30;
+                $request->session()->put('data', $request->input());
+                return redirect('/'); 
 
-                setcookie('usuario', $request->email, $exp);
-
-                echo $_SESSION['usuario'];
             } else {
                 return redirect('/login');
             }

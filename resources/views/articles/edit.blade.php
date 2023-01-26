@@ -1,18 +1,18 @@
 @extends('layouts.main')
 
-@section('title', 'Criar artigo ')
+@section('title', 'Editar artigo ')
 @section('content')
     <main class="container">
         <div class="card">
             <div class="card-header">
-                <h2>Cadastro de Artigo</h2>
+                <h2>Editar artigo</h2>
             </div>
             <div class="card-body">
                 <form action="/article/save" method="post" enctype="multipart/form-data">
                 @csrf
-                    <input type="text" name="title" id="" class="form-control" placeholder="Defina o título do artigo" required>
+                    <input type="text" name="title" id="" class="form-control" placeholder="Defina o título do artigo" required value="{{$article->title}}">
                     <br>
-                    <textarea name="body" id="article" cols="30" rows="10" class="form-control" placeholder="Escreva o artigo aqui!" required></textarea>
+                    <textarea name="body" id="article" cols="30" rows="10" class="form-control" placeholder="Escreva o artigo aqui!" required>{{$article->body}}</textarea>
                     <select name="category" id="" class="form-control">
                         <option value="HTML">HTML</option>
                         <option value="CSS">CSS</option>

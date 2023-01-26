@@ -14,17 +14,26 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\UserController;
+
+Route::get('/', [ArticleController::class, 'index']);
+
 Route::get('/user/register', [UserController::class, 'register']);
-Route::post('/register/salvo', [UserController::class, 'registerUser']);
+Route::post('/save/register', [UserController::class, 'registerUser']);
+
 
 Route::get('/login', [UserController::class, 'login']);
 Route::post('/auth', [UserController::class, 'auth'])->name('auth.user');
 
 Route::group(['middleware'=>['session']], function() {
-    
-    Route::get('/', [ArticleController::class, 'index']);
 
     Route::get('/article/create', [ArticleController::class, 'create']);
     Route::post('/article/save', [ArticleController::class,'store']);
 
+    Route::get('/user/article', [ArticleController::class, 'myArticle']);
+    Route::get('/article/edit/{id}', [ArticleController::class, 'edit']);
+});
+
+Route::get("/logout", function () {
+    session()->forget('data');
+    return redirect('/login');
 });
