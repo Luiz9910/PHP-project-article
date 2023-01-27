@@ -83,6 +83,11 @@ main {
     font-size: 20px;
 }
 
+.search-sub-title {
+    margin-top: 30px;
+    margin-left: 15%;
+}
+
 .contents .article {
     margin-top: 30px;
 }

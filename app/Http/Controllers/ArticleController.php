@@ -8,14 +8,18 @@ use App\Models\User;
 
 class ArticleController extends Controller
 {
-    public function index($search) {
-        if ($search != null) {
-            $dados = Article::find($search);
+    public function index() {
+        $search = request('search');
+
+        if ($search) {
+            $articles = Article::where([
+                ['title', 'like', '%'.$search.'%']
+            ])->get();
         } else {
-            $dados = Article::all();
+            $articles = Article::all();
         }
 
-        return view('welcome', ['events' => $dados]);
+        return view('welcome', ['articles' => $articles, 'search' => $search]);
     }
 
     public function create() {
