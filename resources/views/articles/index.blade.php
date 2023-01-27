@@ -28,8 +28,9 @@
                                 <td>
                                     <div class="edit-delete">
                                         <a href="/article/edit/{{$article->id}}" class="btn btn-warning">Editar</a>
-                                        <form action="/article/delete" method="post" onsubmit="confirmDelete(event, this)">
-                                            <input type="hidden" name="id" value="<%= article.id %>">
+                                        <form action="/article/delete/{{$article->id}}" method="post" onsubmit="confirmDelete(event, this)">
+                                        @csrf
+                                        @method('delete')
                                             <button class="btn btn-danger">Deletar</button>
                                         </form>
                                     </div>
@@ -41,4 +42,16 @@
             </table>
         </div>
     </div>
+    <script>
+    function confirmDelete(event, form) {
+        event.preventDefault();
+        let decision = confirm("Você quer deletar esse evento")
+
+        if (decision) {
+            form.submit();
+        } else {
+            console.log("Não deletar")
+        }
+    }
+    </script>
 @endsection

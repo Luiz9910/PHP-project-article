@@ -39,7 +39,7 @@ class ArticleController extends Controller
 
         $article->save();
 
-        return redirect('/');
+        return redirect('/user/article');
     }
 
     public function myArticle() {
@@ -53,11 +53,15 @@ class ArticleController extends Controller
         return view('articles.index', ['articles' => $articles, 'user_id' => $id]);
     }
 
-    public function edit($id) {
+    public function update($id) {
         $article = Article::find($id);
 
-
-
         return view('articles.edit', ['article' => $article]);
+    }
+
+    public function destroy($id) {
+        Article::find($id)->delete();
+
+        return redirect('/user/article');
     }
 }
