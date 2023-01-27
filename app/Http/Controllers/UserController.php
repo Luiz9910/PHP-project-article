@@ -20,7 +20,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect('/');
+        return redirect('/login');
     }
 
     public function login(Request $request) {

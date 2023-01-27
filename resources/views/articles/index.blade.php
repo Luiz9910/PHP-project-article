@@ -20,20 +20,22 @@
                 </thead>
                 <tbody>
                     @foreach($articles as $article)
-                    <tr>
-                        <td>{{$article->id}}</td>
-                        <td>{{$article->title}}</td>
-                        <td>{{$article->category}}</td>
-                        <td>
-                            <div class="edit-delete">
-                                <a href="/article/edit/{{$article->id}}" class="btn btn-warning">Editar</a>
-                                <form action="/article/delete" method="post" onsubmit="confirmDelete(event, this)">
-                                    <input type="hidden" name="id" value="<%= article.id %>">
-                                    <button class="btn btn-danger">Deletar</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
+                        @if ($user_id == $article->user_id) 
+                            <tr>
+                                <td>{{$article->id}}</td>
+                                <td>{{$article->title}}</td>
+                                <td>{{$article->category}}</td>
+                                <td>
+                                    <div class="edit-delete">
+                                        <a href="/article/edit/{{$article->id}}" class="btn btn-warning">Editar</a>
+                                        <form action="/article/delete" method="post" onsubmit="confirmDelete(event, this)">
+                                            <input type="hidden" name="id" value="<%= article.id %>">
+                                            <button class="btn btn-danger">Deletar</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>

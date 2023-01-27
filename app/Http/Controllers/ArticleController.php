@@ -8,8 +8,13 @@ use App\Models\User;
 
 class ArticleController extends Controller
 {
-    public function index() {
-        $dados = Article::all();
+    public function index($search) {
+        if ($search != null) {
+            $dados = Article::find($search);
+        } else {
+            $dados = Article::all();
+        }
+
         return view('welcome', ['events' => $dados]);
     }
 
@@ -24,19 +29,30 @@ class ArticleController extends Controller
         $article->body = $request->body;
         $article->category = $request->category;
 
+        $data = session()->get('data');
+        $user_id = User::where(['email' => $data['email']])->get();
+        $article->user_id = $user_id['0']['id'];
+
         $article->save();
 
         return redirect('/');
     }
 
     public function myArticle() {
+        $data = session()->get('data');
+        $user_id = User::where(['email' => $data['email']])->get();
+        
+        $id = $user_id['0']['id'];
+
         $articles = Article::all();
 
-        return view('articles.index', ['articles' => $articles]);
+        return view('articles.index', ['articles' => $articles, 'user_id' => $id]);
     }
 
     public function edit($id) {
         $article = Article::find($id);
+
+
 
         return view('articles.edit', ['article' => $article]);
     }
