@@ -53,15 +53,21 @@ class ArticleController extends Controller
         return view('articles.index', ['articles' => $articles, 'user_id' => $id]);
     }
 
-    public function update($id) {
+    public function edit($id) {
         $article = Article::find($id);
 
         return view('articles.edit', ['article' => $article]);
     }
 
+    public function update(Request $request) {
+        Article::find($request->id)->update($request->all());
+
+        return redirect('/');
+    }
+
     public function destroy($id) {
         Article::find($id)->delete();
 
-        return redirect('/user/article');
+        return redirect('/');
     }
 }

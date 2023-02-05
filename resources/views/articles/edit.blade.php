@@ -8,8 +8,10 @@
                 <h2>Editar artigo</h2>
             </div>
             <div class="card-body">
-                <form action="/article/save" method="post" enctype="multipart/form-data">
+                <form action="/article/up/{{$article->id}}" method="post">
                 @csrf
+                @method('PUT')
+
                     <input type="text" name="title" id="" class="form-control" placeholder="Defina o título do artigo" required value="{{$article->title}}">
                     <br>
                     <textarea name="body" id="article" cols="30" rows="10" class="form-control" placeholder="Escreva o artigo aqui!" required>{{$article->body}}</textarea>
@@ -21,7 +23,7 @@
                         <option value="NodeJs">NodeJs</option>
                         <option value="Python">Python</option>
                     </select>
-                    <input type="hidden" name="id" value="1">
+                    <input type="hidden" name="id" value="{{$article->id}}">
                     <button type="submit" class="button-orange">Cadastrar</button>
                 </form>
             </div>

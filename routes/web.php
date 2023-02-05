@@ -30,6 +30,9 @@ Route::group(['middleware'=>['session']], function() {
     Route::post('/article/save', [ArticleController::class,'store']);
 
     Route::get('/user/article', [ArticleController::class, 'myArticle']);
+    Route::get("/article/edit/{id}", [ArticleController::class, 'edit']);
+    Route::put('/article/up/{id}', [ArticleController::class, 'update']);
+
     Route::delete('/article/delete/{id}', [ArticleController::class, 'destroy']);
 });
 
