@@ -22,7 +22,7 @@
                     @foreach($articles as $article)
                         @if ($user_id == $article->user_id) 
                             <tr>
-                                <td>{{1}}</td>
+                                <td>{{$article->id}}</td>
                                 <td>{{$article->title}}</td>
                                 <td>{{$article->category}}</td>
                                 <td>

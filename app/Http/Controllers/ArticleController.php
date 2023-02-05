@@ -62,12 +62,18 @@ class ArticleController extends Controller
     public function update(Request $request) {
         Article::find($request->id)->update($request->all());
 
-        return redirect('/');
+        return redirect('/user/article');
     }
 
     public function destroy($id) {
         Article::find($id)->delete();
 
         return redirect('/');
+    }
+
+    public function readArticle($id) {
+        $article = Article::find($id);
+
+        return view('articles.read', ["article" => $article]);
     }
 }

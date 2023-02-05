@@ -16,6 +16,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [ArticleController::class, 'index']);
+Route::get("/read/article/{id}", [ArticleController::class, "readArticle"]);
 
 Route::get('/user/register', [UserController::class, 'register']);
 Route::post('/save/register', [UserController::class, 'registerUser']);

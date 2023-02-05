@@ -21,7 +21,7 @@
                 <p class="nome">{{$article->title}}</p>
             </div>
             <div>
-                <button class="button-orange"><a href="#">Ler artigo</a></button>
+                <button class="button-orange"><a href="/read/article/{{$article->id}}">Ler artigo</a></button>
             </div>
         </div>
     </div>

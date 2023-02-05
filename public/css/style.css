@@ -33,6 +33,10 @@ header > div:first-child {
     color: #ffffff;
 }
 
+.logo:hover {
+    color: white;
+}
+
 header a {
     text-decoration: none;
 }
